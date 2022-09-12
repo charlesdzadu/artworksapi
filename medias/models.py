@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Media(models.Model):
+    """La classe répresentant les médias """
+    title = models.CharField(max_length=100) 
