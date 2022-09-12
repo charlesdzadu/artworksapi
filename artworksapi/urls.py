@@ -26,11 +26,11 @@ from medias import views
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Snippets API",
-      default_version='v1',
-      description="Test description",
+      title="Artworks API",
+      default_version='1.0.0',
+      description="La plateforme de mise en ligne de médias africaines",
       terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
+      contact=openapi.Contact(email="hello@heliumartworks.com"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
@@ -45,11 +45,10 @@ router.register("medias", views.MediasViewSet, basename="medias")
 urlpatterns = [
     path('', welcome),
     path('admin/', admin.site.urls),
-
     path('api/', include(router.urls)),
 
 
 
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('redoc/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('docs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
